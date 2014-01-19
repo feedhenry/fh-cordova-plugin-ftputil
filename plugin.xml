@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
+        id="com.feedhenry.plugins.ftputil"
+        version="0.0.1">
+
+        <name>FTPUtil</name>
+
+                <description>
+                        This plugin allows you to list files on a FTP server
+                </description>
+
+                <license>MIT</license>
+
+        <engines>
+                <engine name="cordova" version=">=2.8.0" />
+        </engines>
+
+
+        <js-module src="www/FtpUtil.js" name="FtpUtil">
+                <clobbers target="FtpUtil" />
+        </js-module>
+
+        <!-- ios -->
+        <platform name="ios">
+                <config-file target="config.xml" parent="/*">
+                        <feature name="FtpUtil">
+                                <param name="ios-package" value="FtpUtil" />
+                        </feature>
+                </config-file>
+
+                <header-file src="src/ios/FtpUtil.h" />
+                <source-file src="src/ios/FtpUtil.m" />
+
+                <header-file src="src/ios/WhiteRaccoon/WhiteRaccoon.h" compiler-flags="-fno-objc-arc"/>
+                <source-file src="src/ios/WhiteRaccoon/WhiteRaccoon.m" compiler-flags="-fno-objc-arc"/>
+        </platform>
+
+</plugin>
