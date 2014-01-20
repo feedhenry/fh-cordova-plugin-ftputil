@@ -3,7 +3,7 @@ function FtpUtil(){
 }
 
 FtpUtil.prototype.list = function(successCallback, errorCallback, options){
-  cordova.exec(successCallback, errorCallback, "FtpUtil", "ftplist", options]);
+  cordova.exec(successCallback, errorCallback, "FtpUtil", "ftplist", [options]);
 }
 
 cordova.addConstructor(function() {

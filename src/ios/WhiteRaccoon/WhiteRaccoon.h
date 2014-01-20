@@ -66,8 +66,8 @@ typedef enum {
 
 typedef struct WRStreamInfo {
     
-    NSOutputStream    *writeStream;    
-    NSInputStream     *readStream;
+    __unsafe_unretained NSOutputStream    *writeStream;    
+    __unsafe_unretained NSInputStream     *readStream;
     UInt32            bytesConsumedThisIteration;    
     UInt32            bytesConsumedInTotal;
     SInt64            size;
