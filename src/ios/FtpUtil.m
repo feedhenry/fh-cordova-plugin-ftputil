@@ -16,10 +16,10 @@
 {
   self.callbackId = command.callbackId;
   NSDictionary *parameters = [command.arguments objectAtIndex:0];
-  [self ftplist: parameters];
+  [self ftplistWithOptions: parameters];
 }
 
-- (void) ftplist:(NSMutableDictionary*) options
+- (void) ftplistWithOptions:(NSDictionary*) options
 {
   NSString* url = (NSString*)[options objectForKey:@"url"];
   NSString* username = (NSString*)[options objectForKey:@"user"];
