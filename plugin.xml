@@ -33,6 +33,9 @@
 
                 <header-file src="src/ios/WhiteRaccoon/WhiteRaccoon.h" compiler-flags="-fno-objc-arc"/>
                 <source-file src="src/ios/WhiteRaccoon/WhiteRaccoon.m" compiler-flags="-fno-objc-arc"/>
+
+                <framework src="CFNetwork.framework" />
+                <framework src="Foundation.framework" weak="true" />
         </platform>
 
 </plugin>
