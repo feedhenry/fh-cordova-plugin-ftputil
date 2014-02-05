@@ -6,7 +6,7 @@
         <name>FTPUtil</name>
 
                 <description>
-                        This plugin allows you to list files on a FTP server
+                        This plugin allows you to list files on a FTP server. iOS only for now
                 </description>
 
                 <license>MIT</license>
@@ -15,11 +15,6 @@
                 <engine name="cordova" version=">=2.8.0" />
         </engines>
 
-
-        <js-module src="www/FtpUtil.js" name="FtpUtil">
-                <clobbers target="FtpUtil" />
-        </js-module>
-
         <!-- ios -->
         <platform name="ios">
                 <config-file target="config.xml" parent="/*">
@@ -27,6 +22,10 @@
                                 <param name="ios-package" value="FtpUtil" />
                         </feature>
                 </config-file>
+
+                <js-module src="www/FtpUtil.js" name="FtpUtil">
+                  <clobbers target="FtpUtil" />
+                </js-module>
 
                 <header-file src="src/ios/FtpUtil.h" />
                 <source-file src="src/ios/FtpUtil.m" />
