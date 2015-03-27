@@ -17,14 +17,14 @@
 
 exports.defineAutoTests = function () {
   describe('API test', function () {
-    it("ftputil should exist", function () {
-      expect(push).toBeDefined();
-      expect(typeof ftputil == 'object').toBe(true);
+    it("FtpUtil should exist", function () {
+      expect(window.plugins.ftputil).toBeDefined();
+      expect(typeof window.plugins.ftputil == 'object').toBe(true);
     });
 
     it("should contain a list function", function () {
-      expect(push.register).toBeDefined();
-      expect(typeof ftputil.list == 'function').toBe(true);
+      expect(window.plugins.ftputil.list).toBeDefined();
+      expect(typeof window.plugins.ftputil.list == 'function').toBe(true);
     });
   });
 };
@@ -47,7 +47,7 @@ exports.defineManualTests = function (contentEl, createActionButton) {
 
   var html = '<h3>Fetch list from ftp server</h3>' +
     '<div id="output"></div>' +
-    '<input type="test" id="url" value="ftp://ftp.nluug.nl/"/>' +
+    '<input type="test" id="url" value="ftp://ftp.nluug.nl/"/><br/>' +
     'Expected result: Status box will show list of files on ftp server';
 
   contentEl.innerHTML = '<div id="info"></div>' + html;
@@ -55,12 +55,17 @@ exports.defineManualTests = function (contentEl, createActionButton) {
   createActionButton('Fetch list', function () {
     clearLog();
     var url = document.getElementById('url').value;
-    ftputil.list(
-      function (message) {
-        logMessage(message);
+    window.plugins.ftputil.list(
+      function (files) {
+        var length = files.length;
+        for (var i = 0; i < length; i++) {
+          logMessage(files[i].name + ' ' + files[i].timestamp);
+        }
       },
       function (err) {
         logMessage('Error ' + err, 'red');
-      }, config);
+      }, {
+        "url": url
+      });
   }, "output");
 };
