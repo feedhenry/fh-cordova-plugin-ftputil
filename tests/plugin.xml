@@ -1,0 +1,7 @@
+<plugin xmlns="http://www.phonegap.com/ns/plugins/1.0" id="com.feedhenry.plugins.ftputil.tests" version="0.0.1">
+  <name>AeroGear PushPlugin Tests</name>
+  <license>MIT</license>
+
+  <js-module src="tests.js" name="tests">
+  </js-module>
+</plugin>
