@@ -45,7 +45,7 @@
     [listReq start];
   } else {
         CDVPluginResult *result = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsInt:5];
-        [self writeJavascript:[result toErrorCallbackString:self.callbackId]];
+        [self.commandDelegate sendPluginResult:result callbackId:callbackId];
   }
 
 }
@@ -85,7 +85,7 @@
   }
   
     CDVPluginResult* result = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsArray:jsArray];
-  [self writeJavascript:[result toSuccessCallbackString:self.callbackId]];
+    [self.commandDelegate sendPluginResult:result callbackId:callbackId];
 }
 
 
@@ -94,9 +94,7 @@
   NSLog(@"list failed");
   NSLog(@"Error : %@", theRequest.error.message);
     CDVPluginResult* result = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsInt:1];
-    [self writeJavascript:[result toErrorCallbackString:self.callbackId]];
+    [self.commandDelegate sendPluginResult:result callbackId:callbackId];
 }
-
-
 
 @end
