@@ -17,6 +17,9 @@
 
         <!-- ios -->
         <platform name="ios">
+            <js-module src="www/FtpUtil.js" name="FtpUtil">
+                <clobbers target="window.plugins.ftputil" />
+            </js-module>
                 <config-file target="config.xml" parent="/*">
                         <feature name="FtpUtil">
                                 <param name="ios-package" value="FtpUtil" />
