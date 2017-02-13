@@ -44,10 +44,9 @@
         }
     [listReq start];
   } else {
-        CDVPluginResult *result = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsInt:5];
-        [self.commandDelegate sendPluginResult:result callbackId:callbackId];
+    CDVPluginResult *result = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR messageAsInt:5];
+    [self.commandDelegate sendPluginResult:result callbackId:callbackId];
   }
-
 }
 
 -(void) requestCompleted:(WRRequest *) theRequest 
@@ -84,8 +83,8 @@
     [jsArray addObject:dict];
   }
   
-    CDVPluginResult* result = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsArray:jsArray];
-    [self.commandDelegate sendPluginResult:result callbackId:callbackId];
+  CDVPluginResult* result = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsArray:jsArray];
+  [self.commandDelegate sendPluginResult:result callbackId:callbackId];
 }
 
 
@@ -93,8 +92,8 @@
 {
   NSLog(@"list failed");
   NSLog(@"Error : %@", theRequest.error.message);
-    CDVPluginResult* result = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsInt:1];
-    [self.commandDelegate sendPluginResult:result callbackId:callbackId];
+  CDVPluginResult* result = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR messageAsInt:1];
+  [self.commandDelegate sendPluginResult:result callbackId:callbackId];
 }
 
 @end
