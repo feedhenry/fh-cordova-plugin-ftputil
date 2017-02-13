@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
-        id="com.feedhenry.plugins.ftputil"
-        version="0.0.1">
+        id="fh-cordova-plugin-ftputil"
+        version="0.0.2">
 
         <name>FTPUtil</name>
 
@@ -17,6 +17,9 @@
 
         <!-- ios -->
         <platform name="ios">
+            <js-module src="www/FtpUtil.js" name="FtpUtil">
+                <clobbers target="window.plugins.ftputil" />
+            </js-module>
                 <config-file target="config.xml" parent="/*">
                         <feature name="FtpUtil">
                                 <param name="ios-package" value="FtpUtil" />
